@@ -1,8 +1,9 @@
 FROM alpine
 
-RUN apk add --update --no-cache curl bind-tools
+ARG TZ='Europe/Paris'
+ENV DEFAULT_TZ ${TZ}
 
-WORKDIR /usr/src/app
+RUN apk add --update --no-cache curl bind-tools tzdata  && cp /usr/share/zoneinfo/${DEFAULT_TZ} /etc/localtime  && rm -rf /var/cache/apk/*
 
 COPY dynhost.sh .
 RUN chmod +x ./dynhost.sh

@@ -40,6 +40,21 @@ Of course you need to insert your credentials.
 
 This will update the dynhost every 15 minutes if the ip changed.
 
+### Multiple domain update
+
+```yml
+version: "3"
+
+services:
+  ovh-dynhost:
+    image: p4sca1/dynhost
+    restart: always
+    environment:
+      DYNHOST_DOMAIN_NAME: dynhost.example.com, dynhost.example2.com
+      DYNHOST_LOGIN: login
+      DYNHOST_PASSWORD: password
+```
+
 ### Updating the dynhost manually
 If your ip changed and you can't wait 15 minutes for the next update to happen, you can update the dynhost manually.
 

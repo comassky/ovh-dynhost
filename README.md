@@ -1,3 +1,7 @@
+Thanks to P4sca1 for its work ! https://github.com/P4sca1/ovh-dynhost
+
+My fork allows to update several domain names within the same container
+
 # ovh-dynhost
 Docker image to update an OVH dynhost regularly. Based on Alpine linux.
 

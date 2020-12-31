@@ -18,7 +18,7 @@ docker run \
   -e DYNHOST_PASSWORD=password \
   --restart always \
   --name ovh-dynhost \
-  p4sca1/ovh-dynhost
+  comassky/ovh-dynhost
 ```
 
 **Or via docker-compose:**
@@ -28,7 +28,7 @@ version: "3"
 
 services:
   ovh-dynhost:
-    image: p4sca1/dynhost
+    image: comassky/ovh-dynhost
     restart: always
     environment:
       DYNHOST_DOMAIN_NAME: dynhost.example.com
@@ -47,13 +47,18 @@ version: "3"
 
 services:
   ovh-dynhost:
-    image: p4sca1/dynhost
+    image: comassky/ovh-dynhost
     restart: always
     environment:
       DYNHOST_DOMAIN_NAME: dynhost.example.com, dynhost.example2.com
       DYNHOST_LOGIN: login
       DYNHOST_PASSWORD: password
 ```
+
+### Credentials
+
+I recommand you to use .env file (chmod 600) for your credentials :)
+
 
 ### Updating the dynhost manually
 If your ip changed and you can't wait 15 minutes for the next update to happen, you can update the dynhost manually.
@@ -64,12 +69,3 @@ If your ip changed and you can't wait 15 minutes for the next update to happen, 
 
 `docker-compose exec ovh-dynhost ./dynhost.sh`
 
-### Checking for problems
-The docker container will echo debug messages whenever it tries to update the dynhost.
-You can access them via
-
-`docker container exec ovh-dynhost cat /usr/src/app/dynhost.log`
-
-**Or when using docker-compose:**
-
-`docker-compose  exec ovh-dynhost cat /usr/src/app/dynhost.log`

@@ -11,8 +11,6 @@ do
     if [ "$CURRENT_IP" != "$IP" ]; then
         echo "Updating $domain from $CURRENT_IP to $IP"
         curl -s --user "${DYNHOST_LOGIN}:${DYNHOST_PASSWORD}" "http://www.ovh.com/nic/update?system=dyndns&hostname=${domain}&myip=${IP}"
-    else
-       echo "No update required for $domain"
     fi
   else
     echo "IP not found for $domain"

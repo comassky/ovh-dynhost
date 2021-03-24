@@ -12,4 +12,6 @@ RUN chmod +x ./dynhost.sh
 
 RUN ln -sf /usr/src/app/dynhost.sh /etc/periodic/15min/dynhost
 
+HEALTHCHECK CMD dig ovh.com
+
 CMD ["crond", "-f"]
